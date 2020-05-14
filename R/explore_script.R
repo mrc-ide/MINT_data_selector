@@ -80,9 +80,38 @@ NET_type <- sample(unique_data[[11]], 1, replace = TRUE)
 
 
 
+y = 1
+system.time(table_impact_data(malaria_array_all_data_prev_1_inc_2,
+                  type[y], 
+                  resistance[y],
+                  bound[y],
+                  season[y],
+                  endemicity[y],
+                  phi[y],
+                  Q0[y],
+                  nets[y],
+                  sprays[y],
+                  switch_nets[y],
+                  switch_irs[y],
+                  NET_type[y],
+                  population = 1000))
 
 
 
+# NET_TYPE
+# Intervention 1: switch_nets = 0 & switch_irs = 0
+# Intervention 2: switch_nets = user & NET_type = 1 & switch_irs = 0
+# Intervention 3: switch_nets = user & NET_type = 2 & switch_irs = 0
+# Intervention 4: switch_nets = 0 & NET_type = 2 & switch_irs = user
+# Intervention 5: switch_nets = user & NET_type = 1 & switch_irs = user
+# Intervention 6: switch_nets = user & NET_type = 2 & switch_irs = user
 
+# Names
+# Intervention 1 = Do nothing
+# Intervention 2 = Standard nets only
+# Intervention 3 = PBO nets only
+# Intervention 4 = IRS only
+# Intervention 5 = Standard nets with IRS
+# Intervention 6 = PBO nets with IRS
 
 
