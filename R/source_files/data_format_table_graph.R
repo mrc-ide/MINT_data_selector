@@ -1,7 +1,7 @@
 
 data_format_table_graph <- function(malaria_array, all_interventions_df, 
                                     type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                                    switch_nets, switch_irs, NET_type, all_interventions){
+                                    switch_nets, switch_irs, NET_type){
   
   
   do.call(rbind, sapply(1:nrow(all_interventions_df), function(x){

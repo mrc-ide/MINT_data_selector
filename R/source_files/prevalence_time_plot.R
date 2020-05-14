@@ -14,9 +14,9 @@ prevalence_time_plot <- function(malaria_array, type, resistance, bound, season,
                                   stringsAsFactors = FALSE)
   
   
-  prev_time <- data_format_table_graph(malaria_array, all_interventions_df,
-                          type, resistance, x, season, endemicity, phi, Q0, nets, sprays,
-                          switch_nets, switch_irs, NET_type, all_interventions)
+  prev_time <- data_format_table_graph(malaria_array, all_interventions,
+                          type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
+                          switch_nets, switch_irs, NET_type)
   
   prev_time$intervention <- factor(prev_time$intervention,
                                    levels = c("Do nothing",

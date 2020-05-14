@@ -43,7 +43,7 @@ switch_irs <- sample(unique_data[[10]], 1000, replace = TRUE)
 NET_type <- sample(unique_data[[11]], 1000, replace = TRUE)
 
 
-all_times_go <- sapply(1:1000, function(y){
+all_times_go <- sapply(1:1, function(y){
   print(y)
   
   system.time(data_selector(
@@ -96,6 +96,39 @@ system.time(table_impact_data(malaria_array_all_data_prev_1_inc_2,
                   switch_irs[y],
                   NET_type[y],
                   population = 1000))
+
+system.time(prevalence_time_plot(malaria_array_all_data_prev_1_inc_2,
+                              type[y], 
+                              resistance[y],
+                              bound[y],
+                              season[y],
+                              endemicity[y],
+                              phi[y],
+                              Q0[y],
+                              nets[y],
+                              sprays[y],
+                              switch_nets[y],
+                              switch_irs[y],
+                              NET_type[y]))
+
+system.time(cases_averted_barplot(malaria_array_all_data_prev_1_inc_2,
+                                 type[y], 
+                                 resistance[y],
+                                 bound[y],
+                                 season[y],
+                                 endemicity[y],
+                                 phi[y],
+                                 Q0[y],
+                                 nets[y],
+                                 sprays[y],
+                                 switch_nets[y],
+                                 switch_irs[y],
+                                 NET_type[y],
+                                 population = 100))
+
+
+
+
 
 
 

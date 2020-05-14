@@ -13,9 +13,9 @@ table_impact_data <- function(malaria_array, type, resistance, bound, season, en
                                   switch_irs = c(0, 0, 0, switch_irs, switch_irs, switch_irs),
                                   stringsAsFactors = FALSE)
   
-  table_impact_data <- data_format_table_graph(malaria_array, all_interventions_df,
+  table_impact_data <- data_format_table_graph(malaria_array, all_interventions,
                           type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                          switch_nets, switch_irs, NET_type, all_interventions)
+                          switch_nets, switch_irs, NET_type)
   
   
   #Work out cases 
