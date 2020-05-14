@@ -1,3 +1,4 @@
+library(ggplot2)
 
 invisible(sapply(list.files("R/source_files", full.names = TRUE), function(x) source(x)))
 

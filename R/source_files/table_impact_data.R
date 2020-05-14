@@ -17,7 +17,8 @@ table_impact_data <- function(malaria_array, type, resistance, bound, season, en
                           type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
                           switch_nets, switch_irs, NET_type, all_interventions)
   
-   #Work out cases 
+  
+  #Work out cases 
   past_prev <- rowMeans(table_impact_data[, paste0("month_", -12:-1)])
   past_case <- past_prev*population
   
