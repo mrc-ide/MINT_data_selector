@@ -29,9 +29,28 @@ unique_data <- sapply(1:11, function(x){
 #Run through all functions
 time1 <- Sys.time()
 all_function_speeds <- sapply(clean_functions, function(x){
+  
   print(x)
-  rowMeans(speed_checker_auto(get(x), 50, malaria_array_all_data_prev_1_inc_2, unique_data), na.rm = TRUE)
+  speed_checker_auto(get(x), 50, malaria_array_all_data_prev_1_inc_2, unique_data)[3, ]
+  
 })
 time2 <- Sys.time()
 time2-time1
+
+#Plot
+ggplot_speed_df <- data.frame(function_name = rep(colnames(all_function_speeds), each = nrow(all_function_speeds)),
+                              time = c(all_function_speeds))
+
+ggplot() + geom_boxplot(data = ggplot_speed_df, 
+                        aes(x = function_name, y = time, fill = function_name)) +
+  theme_minimal() + labs(x = "", y = "Time (seconds)") + 
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, vjust = 0.5))
+
+
+
+
+
+
+
 
