@@ -4,7 +4,7 @@
 #The other inputs are those selected in the interface
 
 data_selector <- function(malaria_array, type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                          switch_nets, switch_irs, NET_type){
+                          switch_nets, switch_irs, NET_type, ...){
   
   malaria_array[mat_find_quick(match_mat = malaria_array[, 1:11, ifelse(type == "prev", 1, 2)], 
                       match_vec = c(resistance, bound, season, endemicity, phi, Q0, nets, sprays,

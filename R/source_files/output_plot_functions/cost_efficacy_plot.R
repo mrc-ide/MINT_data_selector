@@ -1,10 +1,10 @@
 
 cost_efficacy_plot <- function(malaria_array, type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                               switch_nets, switch_irs, NET_type, intervention, population, itn_base_cost, itn_pbo_cost,
-                               itn_dist_cost, irs_cost){
+                               switch_nets, switch_irs, NET_type, population, itn_base_cost, itn_pbo_cost,
+                               itn_dist_cost, irs_cost, ...){
   
   cost_cases_df <- cost_effectiveness_data_extractor(malaria_array, type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                                                     switch_nets, switch_irs, NET_type, intervention, population, itn_base_cost, itn_pbo_cost,
+                                                     switch_nets, switch_irs, NET_type, population, itn_base_cost, itn_pbo_cost,
                                                      itn_dist_cost, irs_cost)
   
   ggplot() + geom_point(data = cost_cases_df, aes(x = bound_2_efficacy,

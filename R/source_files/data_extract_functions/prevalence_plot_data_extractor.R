@@ -1,6 +1,6 @@
 
 prevalence_plot_data_extractor <- function(malaria_array, type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                                           switch_nets, switch_irs, NET_type, intervention){
+                                           switch_nets, switch_irs, NET_type, intervention, ...){
   
     all_interventions <- data.frame(intervention = c("Do nothing",
                                                    "Standard nets only",

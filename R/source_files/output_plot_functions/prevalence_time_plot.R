@@ -1,9 +1,9 @@
 
 prevalence_time_plot <- function(malaria_array, type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                                 switch_nets, switch_irs, NET_type, intervention){
+                                 switch_nets, switch_irs, NET_type, ...){
   
   prev_time <- prevalence_plot_data_extractor(malaria_array, type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                                              switch_nets, switch_irs, NET_type, intervention)
+                                              switch_nets, switch_irs, NET_type)
   
     #Transform to ggplot format
   gg_prev <- data.frame(intervention = rep(prev_time$intervention, 
