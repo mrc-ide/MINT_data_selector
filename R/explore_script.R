@@ -51,7 +51,10 @@ all_times_go <- sapply(1:1, function(y){
   
 })
 
-
+#Get the unique values of each column to generate dummy data
+unique_data <- sapply(1:11, function(x){
+  unique(malaria_array_all_data_prev_1_inc_2[[1]][, x, 1])
+}, simplify = FALSE)
 
 malaria_array = malaria_array_all_data_prev_1_inc_2
 type <- sample(c("prev", "inc"), 1, replace = TRUE)

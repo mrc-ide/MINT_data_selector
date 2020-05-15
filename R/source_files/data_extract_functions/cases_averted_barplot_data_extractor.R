@@ -13,7 +13,7 @@ cases_averted_barplot_data_extractor <- function(malaria_array, type, resistance
                                   switch_irs = c(0, 0, 0, switch_irs, switch_irs, switch_irs),
                                   stringsAsFactors = FALSE)
   
-  go_bounds_go <- do.call(cbind, sapply(1:3, function(y){
+  do.call(cbind, sapply(1:3, function(y){
     
     table_impact_data <- data_format_table_graph(malaria_array, all_interventions,
                                                  type, resistance, y, season, endemicity, phi, Q0, nets, sprays,
@@ -44,7 +44,5 @@ cases_averted_barplot_data_extractor <- function(malaria_array, type, resistance
       dfz
     }
   }, simplify = FALSE))
-  
-  go_bounds_go
   
 }

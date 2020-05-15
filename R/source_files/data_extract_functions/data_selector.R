@@ -6,8 +6,8 @@
 data_selector <- function(malaria_array, type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
                           switch_nets, switch_irs, NET_type, ...){
   
-  malaria_array[mat_find_quick(match_mat = malaria_array[, 1:11, ifelse(type == "prev", 1, 2)], 
+  malaria_array[[ifelse(type == "prev", 1, 2)]][mat_find_quick(match_mat = malaria_array[[ifelse(type == "prev", 1, 2)]][, 1:11, bound], 
                       match_vec = c(resistance, bound, season, endemicity, phi, Q0, nets, sprays,
-                            switch_nets, switch_irs, NET_type)), ,ifelse(type == "prev", 1, 2)]
+                            switch_nets, switch_irs, NET_type)), , bound]
   
 }

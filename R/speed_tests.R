@@ -23,7 +23,7 @@ clean_functions <- clean_functions[-which(clean_functions %in% c("data_format_ta
 
 #Get the unique values of each column to generate dummy data
 unique_data <- sapply(1:11, function(x){
-  unique(malaria_array_all_data_prev_1_inc_2[, x, 1])
+  unique(malaria_array_all_data_prev_1_inc_2[[1]][, x, 2])
 }, simplify = FALSE)
 
 #Run through all functions
