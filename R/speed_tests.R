@@ -41,13 +41,15 @@ time2-time1
 ggplot_speed_df <- data.frame(function_name = rep(colnames(all_function_speeds), each = nrow(all_function_speeds)),
                               time = c(all_function_speeds))
 
-ggplot() + geom_boxplot(data = ggplot_speed_df, 
-                        aes(x = function_name, y = time, fill = function_name)) +
-  theme_minimal() + labs(x = "", y = "Time (seconds)") + 
-  theme(legend.position = "none",
-        axis.text.x = element_text(angle = 45, vjust = 0.5))
+speed_ggplot <- ggplot() + geom_boxplot(data = ggplot_speed_df, 
+                        aes(y = function_name, x = time, fill = function_name)) +
+  theme_minimal() + labs(y = "", x = "Time (seconds)",
+                         title = "Comparison of function speed,\nmean of 50 runs") + 
+  theme(legend.position = "none") 
 
+speed_ggplot
 
+ggsave("figs/speed_of_functions.png", width = 6, height = 5)
 
 
 
