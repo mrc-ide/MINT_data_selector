@@ -1,10 +1,18 @@
+#####################################################################
+####                                                             ####
+####   This is just to check the speed of different functions    ####
+####                                                             ####  
+#####################################################################
+
+
 library(ggplot2)
 
+#Load in all the functions and the data
 load_functions <- list.files("R/source_files", full.names = TRUE, recursive = TRUE)
 invisible(sapply(load_functions, function(x) source(x)))
-
 load("data/malaria_array_all_data_prev_1_inc_2.Rdata")
 
+#Clean the function names so they can be called with get
 clean_functions <- gsub("R/source_files/|data_extract_functions/|output_plot_functions/|.R|output_table_functions/", 
                         "", load_functions)
 
@@ -13,7 +21,7 @@ clean_functions <- clean_functions[-which(clean_functions %in% c("data_format_ta
                                                                  "mat_find_quick",
                                                                  "speed_checker_auto"))]
 
-#Generate dummy data
+#Get the unique values of each column to generate dummy data
 unique_data <- sapply(1:11, function(x){
   unique(malaria_array_all_data_prev_1_inc_2[, x, 1])
 }, simplify = FALSE)
@@ -26,48 +34,4 @@ all_function_speeds <- sapply(clean_functions, function(x){
 })
 time2 <- Sys.time()
 time2-time1
-
-
-
-
-data_format_table_graph
-
-
-
-#Run through a 1000 options
-set.seed(1)
-
-#Randomly select data for all possible arguments
-type <- sample(c("prev", "inc"), 1, replace = TRUE)
-resistance <- sample(unique_data[[1]], 1, replace = TRUE)
-bound <- sample(unique_data[[2]], 1, replace = TRUE)
-season <- sample(unique_data[[3]], 1, replace = TRUE)
-endemicity <- sample(unique_data[[4]], 1, replace = TRUE)
-phi <- sample(unique_data[[5]], 1, replace = TRUE)
-Q0 <- sample(unique_data[[6]], 1, replace = TRUE)
-nets <- sample(unique_data[[7]], 1, replace = TRUE)
-sprays <- sample(unique_data[[8]], 1, replace = TRUE)
-switch_nets <- sample(unique_data[[9]], 1, replace = TRUE)
-switch_irs <- sample(unique_data[[10]], 1, replace = TRUE)
-NET_type <- sample(unique_data[[11]], 1, replace = TRUE)
-population <- sample(1:10000000, 1, replace = TRUE)
-itn_base_cost <- sample(1:50, 1, replace = TRUE)
-itn_pbo_cost <- sample(1:50, 1, replace = TRUE)
-itn_dist_cost <- sample(1:50, 1, replace = TRUE)
-irs_cost <- sample(1:50, 1, replace = TRUE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
