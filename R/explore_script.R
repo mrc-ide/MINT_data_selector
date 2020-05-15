@@ -127,8 +127,24 @@ system.time(cases_averted_barplot(malaria_array_all_data_prev_1_inc_2,
                                  population = 100))
 
 
-
-
+system.time(cost_effectiveness_plots(malaria_array_all_data_prev_1_inc_2,
+                                  type[y], 
+                                  resistance[y],
+                                  bound[y],
+                                  season[y],
+                                  endemicity[y],
+                                  phi[y],
+                                  Q0[y],
+                                  nets[y],
+                                  sprays[y],
+                                  switch_nets[y],
+                                  switch_irs[y],
+                                  NET_type[y],
+                                  population = 100,
+                                  itn_base_cost = 2, 
+                                  itn_pbo_cost = 3,
+                                  itn_dist_cost = 2, 
+                                  irs_cost = 1))
 
 
 
@@ -147,5 +163,31 @@ system.time(cases_averted_barplot(malaria_array_all_data_prev_1_inc_2,
 # Intervention 4 = IRS only
 # Intervention 5 = Standard nets with IRS
 # Intervention 6 = PBO nets with IRS
+
+table_impact_data(
+  malaria_array = malaria_array_all_data_prev_1_inc_2,
+  type = "prev",
+  resistance = 60,
+  bound = 2,
+  season = 1,
+  endemicity = .6,
+  phi = .97,
+  Q0 = .74,
+  nets = .6,
+  sprays = 0,
+  switch_nets = 0.5,
+  switch_irs = 0,
+  NET_type = 2,
+  population = 1000
+)
+
+
+
+
+itn_base_cost = 1.5
+itn_pbo_cost = 2.5
+itn_dist_cost = 2.75
+irs_cost = 2.5
+
 
 
