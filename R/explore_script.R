@@ -27,29 +27,6 @@ system.time(data_selector(malaria_array_all_data_prev_1_inc_2,
                           NET_type = 1))
 
 
-#Test on random things
-
-
-
-all_times_go <- sapply(1:1, function(y){
-  print(y)
-  
-  system.time(data_selector(
-    malaria_array_all_data_prev_1_inc_2,
-    type[y], 
-    resistance[y],
-    bound[y],
-    season[y],
-    endemicity[y],
-    phi[y],
-    Q0[y],
-    nets[y],
-    sprays[y],
-    switch_nets[y],
-    switch_irs[y],
-    NET_type[y]))
-  
-})
 
 #Get the unique values of each column to generate dummy data
 unique_data <- sapply(1:11, function(x){
@@ -70,6 +47,16 @@ switch_nets <- sample(unique_data[[9]], 1, replace = TRUE)
 switch_irs <- sample(unique_data[[10]], 1, replace = TRUE)
 NET_type <- sample(unique_data[[11]], 1, replace = TRUE)
 
+
+zone_df <- data.frame(zone_id = 1:3,
+                      resistance = sample(unique_data[[1]], 3, replace = TRUE),
+                      season = sample(unique_data[[3]], 3, replace = TRUE),
+                      endemicity = sample(unique_data[[4]], 3, replace = TRUE),
+                      phi = sample(unique_data[[5]], 3, replace = TRUE),
+                      Q0 = sample(unique_data[[6]], 3, replace = TRUE),
+                      nets = sample(unique_data[[7]], 3, replace = TRUE),
+                      sprays = sample(unique_data[[8]], 3, replace = TRUE),
+                      stringsAsFactors = FALSE)
 
 
 y = 1
@@ -117,25 +104,6 @@ system.time(cases_averted_barplot(malaria_array_all_data_prev_1_inc_2,
                                  NET_type[y],
                                  population = 100))
 
-
-system.time(cost_effectiveness_plots(malaria_array_all_data_prev_1_inc_2,
-                                  type[y], 
-                                  resistance[y],
-                                  bound[y],
-                                  season[y],
-                                  endemicity[y],
-                                  phi[y],
-                                  Q0[y],
-                                  nets[y],
-                                  sprays[y],
-                                  switch_nets[y],
-                                  switch_irs[y],
-                                  NET_type[y],
-                                  population = 100,
-                                  itn_base_cost = 2, 
-                                  itn_pbo_cost = 3,
-                                  itn_dist_cost = 2, 
-                                  irs_cost = 1))
 
 
 
