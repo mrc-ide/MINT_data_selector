@@ -64,9 +64,10 @@ resource_zone_optimiser <- function(zone_df, itn_base_cost, itn_pbo_cost, itn_di
   }, simplify = FALSE))
   
   
-  knapsack(w = all_zones_optimising$cost, 
-           p = all_zones_optimising$efficacy,
-           cap = 10000)
+  
+  knapsack(w = as.integer(round(all_zones_optimising$cost)), 
+           p = all_zones_optimising$averted,
+           cap = 70000)
   
   
 }

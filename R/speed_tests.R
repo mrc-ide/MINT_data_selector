@@ -18,7 +18,8 @@ clean_functions <- gsub("R/source_files/|data_extract_functions/|output_plot_fun
 #Remove the most baseline functions
 clean_functions <- clean_functions[-which(clean_functions %in% c("data_format_table_graph",
                                                                  "mat_find_quick",
-                                                                 "speed_checker_auto"))]
+                                                                 "speed_checker_auto",
+                                                                 "resource_zone_optimiser"))]
 
 #Get the unique values of each column to generate dummy data
 unique_data <- sapply(1:11, function(x){
@@ -30,7 +31,7 @@ time1 <- Sys.time()
 all_function_speeds <- sapply(clean_functions, function(x){
   
   print(x)
-  speed_checker_auto(get(x), 50, malaria_array_all_data_prev_1_inc_2, unique_data)[3, ]
+  speed_checker_auto(get(x), 25, malaria_array_all_data_prev_1_inc_2, unique_data)[3, ]
   
 })
 time2 <- Sys.time()
