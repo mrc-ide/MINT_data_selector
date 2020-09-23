@@ -20,7 +20,7 @@ cases_averted_barplot_data_extractor <- function(malaria_array, type, resistance
                                                  switch_nets, switch_irs, NET_type)
     
     table_impact_data$intervention <- factor(table_impact_data$intervention,
-                                             levels = c("Do nothing",
+                                             levels = c("No intervention",
                                                         "Standard nets only",
                                                         "PBO nets only",
                                                         "IRS only",

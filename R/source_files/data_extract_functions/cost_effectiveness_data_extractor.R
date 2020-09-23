@@ -4,7 +4,7 @@ cost_effectiveness_data_extractor <- function(malaria_array, type, resistance, b
                                               itn_base_cost, itn_pbo_cost,
                                               itn_dist_cost, irs_cost, ...){
   
-  all_interventions <- data.frame(intervention = c("Do nothing",
+  all_interventions <- data.frame(intervention = c("No intervention",
                                                    "Standard nets only",
                                                    "PBO nets only",
                                                    "IRS only",

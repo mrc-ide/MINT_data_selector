@@ -2,7 +2,7 @@
 table_impact_data <- function(malaria_array, type, resistance, bound, season, endemicity, phi, Q0, nets, sprays,
                                     switch_nets, switch_irs, NET_type, population, ...){
   
-  all_interventions <- data.frame(intervention = c("Do nothing",
+  all_interventions <- data.frame(intervention = c("No intervention",
                                                    "Standard nets only",
                                                    "PBO nets only",
                                                    "IRS only",
